@@ -1,22 +1,14 @@
 // Chamar URl
-
-
-function convertPokemonTypesToLi(pokemonTypes) {
-  return pokemonTypes.map((typeSlot) => `<li class="tipo">${typeSlot.type.name}</li>`)
-
-
-}
-
 function convertPokemonToList(pokemon) {
-  return `  <li class="pokemon">
-          <span class="numero">${pokemon.order}</span>
+  return `  <li class="pokemon ${pokemon.type}">
+          <span class="numero">${pokemon.number}</span>
           <span class="nome">${pokemon.name}</span>
 
           <div class="detalhe">
-            <ol class="tipos">
-              ${convertPokemonTypesToLi(pokemon.types).join(' ')}
+          <ol class="tipos">
+          ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
             </ol>
-            <img src="${pokemon.sprites.other.dream_world.front_default}" alt=" ${pokemon.name}">
+            <img src="${pokemon.imagem}" alt=" ${pokemon.name}">
           </div>
 
           </li>`
